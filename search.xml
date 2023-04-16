@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>查找算法-快速排序算法</title>
+      <link href="/2023/04/16/cha-zhao-suan-fa-kuai-su-pai-xu-suan-fa/"/>
+      <url>/2023/04/16/cha-zhao-suan-fa-kuai-su-pai-xu-suan-fa/</url>
+      
+        <content type="html"><![CDATA[<h2 id="3-5-快速排序"><a href="#3-5-快速排序" class="headerlink" title="3.5 快速排序"></a>3.5 快速排序</h2><h3 id="3-5-1-简介"><a href="#3-5-1-简介" class="headerlink" title="3.5.1 简介"></a>3.5.1 简介</h3><p>快速排序是通过比较和交换位置来排序的排序算法，是对冒泡算法的一种优化。当数据量比较大的时候，推荐使用快速排序。快速排序的思想是：通过一次排序将无序的数据分为两个独立部分，其中一部分数据的值均比另一部分要小，再对这两部分分别进行排序，使得整个序列有序。简单来说，就是从所有数据中取一个基准值，不大于该基准值的为一部分，大于基准值的为一部分，再在这两部分中分别取基准值再继续分别分为两部分，以此类推，直到剩下的部分只有一个元素，则结束。</p><h3 id="3-5-2-步骤"><a href="#3-5-2-步骤" class="headerlink" title="3.5.2 步骤"></a>3.5.2 步骤</h3><p>快速排序的两种方法：填坑法和前后指针法</p><p>填坑法步骤：</p><p>取序列A中第一个元素为基准值，并且取两个索引i&#x3D;0,j&#x3D;n-1，准备临时变量temp &#x3D; A[i];<br>从右开始寻找小于基准值temp的数（j– &amp;&amp; j &gt; i），得到值A[j]，填坑：A[i]&#x3D;A[j]<br>从左开始寻找不小于基准值temp的数（i++ &amp;&amp;  j&gt;i），得到值A[i]，填坑：A[j]&#x3D;A[i]<br>重复操作2和操作3，直到i&#x3D;&#x3D;j，则A[i]&#x3D;temp<br>将序列分为0 ~ i-1 和i+1 ~ n-1两部分，继续重复步骤1、2、3、4，直到最后的序列只剩下一个元素。<br>填坑法的重点：不动的指针所指的位置是坑位</p><p>如图：</p><p><img src="/../Markdown_images/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/1.png" alt="img"></p><p>前后指针法的步骤：</p><p>取序列A中第一个元素为基准值，并且取两个索引i&#x3D;0,j&#x3D;n-1，准备临时变量begin&#x3D; i;<br>从右开始寻找不大于基准值temp的数（j– &amp;&amp; j &gt; i），得到值A[j]<br>从左开始寻找大于基准值temp的数（i++ &amp;&amp;  j&gt;i），得到值A[i]，交换值A[i]和值A[j]<br>重复操作2和操作3，直到i&#x3D;&#x3D;j，交换A[i]和A[begin]的值<br>将序列分为0 ~ i-1 和i+1 ~ n-1两部分，继续重复步骤1、2、3、4，直到最后的序列只剩下一个元素。<br>如图：</p><p><img src="/../Markdown_images/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/2.png" alt="img"></p><h3 id="3-5-3-总结"><a href="#3-5-3-总结" class="headerlink" title="3.5.3 总结"></a>3.5.3 总结</h3><p>快速排序是一种分而治之的思想，通过基准值将序列划分为两段小序列，然后继续划分，直到划分到只有一个元素或者为空的序列，结束继续划分。其最坏时间复杂度是O(n²)，平均的时间复杂度为O(nlogn)，空间复杂度为O(logn)，是一种不稳定算法。</p><h3 id="3-5-4-快速查找"><a href="#3-5-4-快速查找" class="headerlink" title="3.5.4 快速查找"></a>3.5.4 快速查找</h3><p>和快速排序是一个思想</p><p>1.确定一个分界点<br>2.调整区间<br>3.递归处理左右两段<br>问题是，现在只要找到第k个数，所以不需要完全做完左右两个区间的调整。<br>于是判断第k个数在左边还是右边，只需要处理一边即可</p><p>引用：</p><blockquote><p>1.<a href="http://t.csdn.cn/M30up">快速排序详解</a></p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 查找算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+            <tag> 查找算法 </tag>
+            
+            <tag> 快速排序 </tag>
+            
+            <tag> QuickSort </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>查找算法-二分查找算法</title>
       <link href="/2023/04/16/cha-zhao-suan-fa-er-fen-cha-zhao-suan-fa/"/>
       <url>/2023/04/16/cha-zhao-suan-fa-er-fen-cha-zhao-suan-fa/</url>

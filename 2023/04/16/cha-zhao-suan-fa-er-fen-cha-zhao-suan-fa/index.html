@@ -4,8 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="主页, yunhua">
-    <meta name="description" content="">
+    <meta name="keywords" content="查找算法-二分查找算法, yunhua">
+    <meta name="description" content="3.4 折半查找（二分查找法）3.4.1 简介二分查找也称折半查找（Binary Search），它是一种效率较高的查找方法。但是，折半查找要求线性表必须采用顺序存储结构，而且表中元素按关键字有序排列。
+3.4.2 查找过程首先，假设表中元">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>主页 | yunhua</title>
+    <title>查找算法-二分查找算法 | yunhua</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -52,7 +53,7 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-</head>
+<meta name="generator" content="Hexo 6.3.0"></head>
 
 
 <body>
@@ -453,12 +454,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">主页</h1>
+                    <h1 class="description center-align post-title">查找算法-二分查找算法</h1>
                 </div>
             </div>
         </div>
@@ -480,12 +481,37 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">算法</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">查找算法</span>
+                            </a>
+                        
+                            <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">
+                                <span class="chip bg-color">二分查找</span>
+                            </a>
+                        
+                            <a href="/tags/BinarySearch/">
+                                <span class="chip bg-color">BinarySearch</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/" class="post-category">
+                                查找算法
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -494,21 +520,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-04-10
+                    2023-04-16
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-04-10
+                    2023-04-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    462
                 </div>
                 
 
@@ -538,7 +564,27 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h2 id="3-4-折半查找（二分查找法）"><a href="#3-4-折半查找（二分查找法）" class="headerlink" title="3.4 折半查找（二分查找法）"></a>3.4 折半查找（二分查找法）</h2><h3 id="3-4-1-简介"><a href="#3-4-1-简介" class="headerlink" title="3.4.1 简介"></a>3.4.1 简介</h3><p>二分查找也称折半查找（Binary Search），它是一种效率较高的查找方法。但是，折半查找要求<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%BA%BF%E6%80%A7%E8%A1%A8/3228081?fromModule=lemma_inlink">线性表</a>必须采用<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84/1347176?fromModule=lemma_inlink">顺序存储结构</a>，而且表中元素按关键字有序排列。</p>
+<h3 id="3-4-2-查找过程"><a href="#3-4-2-查找过程" class="headerlink" title="3.4.2 查找过程"></a>3.4.2 查找过程</h3><p>首先，假设表中元素是按升序排列，将表中间位置记录的关键字与查找关键字比较，如果两者相等，则查找成功；否则利用中间位置记录将表分成前、后两个子表，如果中间位置记录的关键字大于查找关键字，则进一步查找前一子表，否则进一步查找后一子表。重复以上过程，直到找到满足条件的记录，使查找成功，或直到子表不存在为止，此时查找不成功。</p>
+<p>详解原理：</p>
+<blockquote>
+<ol>
+<li>设置查找区间：low &#x3D; 0；high&#x3D; n；</li>
+<li>若查找区间[low, high]不存在，则查找失败；否则转步骤3</li>
+<li>取中间位mid &#x3D; (low + high) &#x2F; 2；比较 target 与 arr[mid]，有以下三种情况：<br>         3.1 若 target &lt; arr[mid]，则high &#x3D; mid - 1；查找在左半区间进行，转步骤2；<br>         3.2 若 target &gt; arr[mid]，则low &#x3D; mid + 1；查找在右半区间进行，转步骤2；<br>         3.3 若 target &#x3D; arr[mid]，则查找成功，返回 mid 值；</li>
+</ol>
+</blockquote>
+<h3 id="3-4-3-算法要求"><a href="#3-4-3-算法要求" class="headerlink" title="3.4.3 算法要求"></a>3.4.3 算法要求</h3><p>1.必须采用顺序存储结构</p>
+<p>2.必须按关键字大小有序排列</p>
+<h3 id="3-4-4-二分查找动画演示"><a href="#3-4-4-二分查找动画演示" class="headerlink" title="3.4.4 二分查找动画演示"></a>3.4.4 二分查找动画演示</h3><p><img src="/../Markdown_images/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/1.gif" alt="img"></p>
+<p>可以看出 二分查找 在查找数字 <code>37</code> 时只需3次，而 顺序查找 在查找<code>37</code>时需要12次。 </p>
+<p>二分查找<strong>最好时间复杂度</strong>是<img src="/../Markdown_images/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/2.gif" alt="img"></p>
+<p>二分查找<strong>最坏时间复杂度</strong>是<img src="/../Markdown_images/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/3.gif" alt="img"></p>
+<p>引用：</p>
+<blockquote>
+<p>1.<a target="_blank" rel="noopener" href="http://t.csdn.cn/lUyaF">查找算法：二分查找</a></p>
+</blockquote>
+
                 
             </div>
             <hr/>
@@ -564,7 +610,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yunhuaCN.github.io/2023/04/10/zhu-ye/">http://yunhuaCN.github.io/2023/04/10/zhu-ye/</a>
+                    <a href="http://yunhuaCN.github.io/2023/04/16/cha-zhao-suan-fa-er-fen-cha-zhao-suan-fa/">http://yunhuaCN.github.io/2023/04/16/cha-zhao-suan-fa-er-fen-cha-zhao-suan-fa/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -601,7 +647,23 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">算法</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">查找算法</span>
+                                </a>
+                            
+                                <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">
+                                    <span class="chip bg-color">二分查找</span>
+                                </a>
+                            
+                                <a href="/tags/BinarySearch/">
+                                    <span class="chip bg-color">BinarySearch</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -678,17 +740,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/04/14/html-di-yi-zhang-1/">
+                <a href="/2023/04/16/cha-zhao-suan-fa-er-fen-cha-zhao-suan-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="HTML第一章-1">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="查找算法-二分查找算法">
                         
-                        <span class="card-title">HTML第一章-1</span>
+                        <span class="card-title">查找算法-二分查找算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -698,30 +761,39 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-16
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Web/" class="post-category">
-                                    Web
+                            <a href="/categories/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/" class="post-category">
+                                    查找算法
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/HTML/">
-                        <span class="chip bg-color">HTML</span>
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
                     </a>
                     
-                    <a href="/tags/Web/">
-                        <span class="chip bg-color">Web</span>
+                    <a href="/tags/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">查找算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">
+                        <span class="chip bg-color">二分查找</span>
+                    </a>
+                    
+                    <a href="/tags/BinarySearch/">
+                        <span class="chip bg-color">BinarySearch</span>
                     </a>
                     
                 </div>
@@ -735,13 +807,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/04/10/hello-world/">
+                <a href="/2023/04/16/cha-zhao-suan-fa-shun-xu-cha-zhao-suan-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="查找算法-顺序查找算法">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">查找算法-顺序查找算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -752,15 +824,39 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-16
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            韵华
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/" class="post-category">
+                                    查找算法
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">查找算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%A1%BA%E5%BA%8F%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">顺序查找算法</span>
+                    </a>
+                    
+                    <a href="/tags/SeqSearch/">
+                        <span class="chip bg-color">SeqSearch</span>
+                    </a>
+                    
                 </div>
                 
             </div>

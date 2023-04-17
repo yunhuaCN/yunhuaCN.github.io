@@ -4,8 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="标签: 算法, yunhua">
-    <meta name="description" content="SIMPLE">
+    <meta name="keywords" content="查找算法-散列查找算法, yunhua">
+    <meta name="description" content="3.7 散列查找（hash查找）3.7.1 基本概念散列函数
+在进行查找时，在记录的存储位置与它的关键字之间建立一个确定的对应关系h,以线性表中每个元素的关键字K为自变量，通过函数h(K)计算出该元素的存储位置，我们将h函数称为散列函数或哈">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>标签: 算法 | yunhua</title>
+    <title>查找算法-散列查找算法 | yunhua</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -52,7 +53,7 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-</head>
+<meta name="generator" content="Hexo 6.3.0"></head>
 
 
 <body>
@@ -449,487 +450,665 @@
 
 </header>
 
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                韵华
-                
-            </div>
+    
 
-            <div class="description center-align">
-                
-                <span id="subtitle"></span>
-                <script src="/libs/typed/typed.js"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: [ 
-                            
-                                "从来没有真正的绝境, 只有心灵的迷途",
-                            
-                                "Never really desperate, only the lost of the soul",
-                            
-                        ],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
-                </script>
-                
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">查找算法-散列查找算法</h1>
+                </div>
             </div>
         </div>
     </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">算法</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">查找算法</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%95%A3%E5%88%97%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">散列查找算法</span>
+                            </a>
+                        
+                            <a href="/tags/HashTable/">
+                                <span class="chip bg-color">HashTable</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/" class="post-category">
+                                查找算法
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-04-17
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-04-17
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.3k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    4 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="3-7-散列查找（hash查找）"><a href="#3-7-散列查找（hash查找）" class="headerlink" title="3.7 散列查找（hash查找）"></a>3.7 散列查找（hash查找）</h2><h3 id="3-7-1-基本概念"><a href="#3-7-1-基本概念" class="headerlink" title="3.7.1 基本概念"></a>3.7.1 基本概念</h3><p>散列函数</p>
+<p>在进行查找时，在记录的存储位置与它的关键字之间建立一个确定的对应关系h,以线性表中每个元素的关键字K为自变量，通过函数h(K)计算出该元素的存储位置，我们将h函数称为散列函数或<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0?fromModule=lemma_inlink">哈希函数</a>。h(K)的值称为散列地址或哈希地址。 [1] <strong>例：</strong></p>
+<p>假定一个线性表为A&#x3D;(18,75,60,43,54,90,46)，选取散列函数为：</p>
+<p>h(K)&#x3D;K%m 取m&#x3D;13</p>
+<p>则得每个元素散列地址：</p>
+<p>h(18)&#x3D;18 % 13&#x3D;5 h(75)&#x3D;75 % 13&#x3D;10 h(60)&#x3D;60 % 13&#x3D;8 h(43)&#x3D;43 % 13&#x3D;4</p>
+<p>h(54)&#x3D;54 % 13&#x3D;2 h(90)&#x3D;90 % 13&#x3D;12 h(46)&#x3D;46 % 13&#x3D;7</p>
+<p>根据散列地址，实现元素的存储映象H[m]：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+<th>11</th>
+<th>12</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>H</td>
+<td></td>
+<td></td>
+<td>54</td>
+<td></td>
+<td>43</td>
+<td>18</td>
+<td></td>
+<td>46</td>
+<td>60</td>
+<td></td>
+<td>75</td>
+<td></td>
+<td>90</td>
+</tr>
+</tbody></table>
+<p><strong>冲突：</strong>在实际应用中，通常可能出现一个待插入元素的散列地址单元已被占用情况，使得该元素无法直接存入此单元，这种情况称为冲突。</p>
+<p><strong>同义词：</strong>具有不同关键字而具有相同散列地址的元素称为同义词，即key1≠key2，但h(key1)&#x3D;h(key2)。由同义词引起的冲突称作同义词冲突。</p>
+<p>例：如向下表中再插入元素70时，70%13&#x3D;5，则出现了冲突</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+<th>11</th>
+<th>12</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>H</td>
+<td></td>
+<td></td>
+<td>54</td>
+<td></td>
+<td>43</td>
+<td>18</td>
+<td></td>
+<td>46</td>
+<td>60</td>
+<td></td>
+<td>75</td>
+<td></td>
+<td>90</td>
+</tr>
+</tbody></table>
+<p>装填因子(α)：指散列表中已存入的元素数n与散列表空间大小m的比值,即：α&#x3D;n&#x2F;m。当α越小时，冲突可能性就越小，但同时，存储空间利用率就越低。</p>
+<p>散列表：根据设定的哈希函数及处理冲突的方法将一组关键字映象到一个有限的连续的地址集上，即把记录存放在表中映象的位置上，这种表便称为散列表(哈希表)。</p>
+<p>一个散列表的好坏与三个因素有关：</p>
+<ul>
+<li>装填因子</li>
+<li>所采用的散列函数</li>
+<li>解决冲突的方法</li>
+</ul>
+<h3 id="3-7-2-散列函数"><a href="#3-7-2-散列函数" class="headerlink" title="3.7.2 散列函数"></a>3.7.2 散列函数</h3><p>构造散列函数的目标是使散列地址尽可能均匀分布在散列空间上，同时使计算尽可能简单，以节省计算时间。</p>
+<h4 id="直接定址法"><a href="#直接定址法" class="headerlink" title="直接定址法"></a>直接定址法</h4><p>以关键字K本身或关键字加上某个数值常量C作为散列地址的方法，对应的散列函数：<br>$$<br>h(K) &#x3D; K+C(C为常数)<br>$$</p>
+<h4 id="除留余数法"><a href="#除留余数法" class="headerlink" title="除留余数法"></a>除留余数法</h4><p>以关键字K除以散列长度m所得余数作为散列地址的方法，对应的散列函数：<br>$$<br>h(K)&#x3D;K 取余 m \<br>m:散列表长<br>$$</p>
+<h4 id="数字分析法"><a href="#数字分析法" class="headerlink" title="数字分析法"></a>数字分析法</h4><p>当关键码的位数很多时，可以通过对关键码的各位进行分析，丢掉分布不均的位，留下分布均与的位作为散列值。数字分析法只适合于静态的关键码值集合，当关键码值发生变化后，必须重新进行数字分析。这无疑限制了数字分析法在实际中的应用。</p>
+<p><strong>例：</strong>有一组关键字如下：</p>
+<p>92326875</p>
+<p>92739628</p>
+<p>92343634</p>
+<p>92706816</p>
+<p>92774638</p>
+<p>92381262</p>
+<p>92394220</p>
+<p>通过分析：每个关键字从左到右第1、2、3位和第6位取值较集中，不宜作散列地址，其余的第4、5、7、8位取值分散，可以选择，若取最后两位作散列地址，得：</p>
+<p><strong>(2,75,28,34,16,38,62,20)</strong></p>
+<h4 id="平方取中法"><a href="#平方取中法" class="headerlink" title="平方取中法"></a>平方取中法</h4><p>取关键字平方的中间几位作为散列地址的方法，由平方取中法得到的散列地址同关键字的每一位都有关，使得散列地址有较好分散性。</p>
+<p>它适用于关键字中每一位取值都不够分散或者较分散的位数小于散列地址所需要的位数的情况。</p>
+<h4 id="折叠法"><a href="#折叠法" class="headerlink" title="折叠法"></a>折叠法</h4><p>首先将关键字分割成位数相同的几段(最后一段位数可少一些)，然后将它们的叠加和(舍去最高位进位)作为散列地址的方法。</p>
+<h4 id="随机乘数法"><a href="#随机乘数法" class="headerlink" title="随机乘数法"></a>随机乘数法</h4><p>随机乘数法使用一个随机实数f(0≤f&lt;1)。成绩f*key的分数部分在0―1之间，用这个分数部分的值与n（散列表的长度）相乘，乘积的整数部分就是对应的散列值，显然这个散列值落在0—n-1之间。</p>
+<h4 id="基数转换法"><a href="#基数转换法" class="headerlink" title="基数转换法"></a>基数转换法</h4><p>将关键码值看成是在另一个基数数制上的书，然后把它转化成原来基数上的数，再选择其中的若干位作为散列值。一般取大于原来基数的数作为转换的基数，并且两个基数应该是互素的。</p>
+<p>例子：采用基数转换法，计算十进制关键码值key&#x3D;852422241的散列值，取转换基数为13，则有：&#x3D;8 * 5 *</p>
+<p>取转换后的数值的中间4为数字作为散列值，于是Hash(key)&#x3D;0789。</p>
+<p>引用：</p>
+<blockquote>
+<p>1.<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%95%A3%E5%88%97%E6%9F%A5%E6%89%BE/4146554?fr=aladdin">散列查找</a></p>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">韵华</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://yunhuaCN.github.io/2023/04/17/cha-zhao-suan-fa-san-lie-cha-zhao-suan-fa/">http://yunhuaCN.github.io/2023/04/17/cha-zhao-suan-fa-san-lie-cha-zhao-suan-fa/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">韵华</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">算法</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">查找算法</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%95%A3%E5%88%97%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">散列查找算法</span>
+                                </a>
+                            
+                                <a href="/tags/HashTable/">
+                                    <span class="chip bg-color">HashTable</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2023/04/17/cha-zhao-suan-fa-san-lie-cha-zhao-suan-fa/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="查找算法-散列查找算法">
+                        
+                        <span class="card-title">查找算法-散列查找算法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-17
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/" class="post-category">
+                                    查找算法
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">查找算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%A3%E5%88%97%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">散列查找算法</span>
+                    </a>
+                    
+                    <a href="/tags/HashTable/">
+                        <span class="chip bg-color">HashTable</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/04/17/cha-zhao-suan-fa-fen-kuai-cha-zhao-suan-fa/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="查找算法-分块查找算法">
+                        
+                        <span class="card-title">查找算法-分块查找算法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-17
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/" class="post-category">
+                                    查找算法
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">查找算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%88%86%E5%9D%97%E6%9F%A5%E6%89%BE/">
+                        <span class="chip bg-color">分块查找</span>
+                    </a>
+                    
+                    <a href="/tags/BlockingSearch/">
+                        <span class="chip bg-color">BlockingSearch</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
 </div>
 
 
 <script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
-    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('50')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: yunhua<br />'
+            + '文章作者: 韵华<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
 </script>
 
 
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
     </div>
-</div>
-
-<main class="content">
-
-    
-
-<div id="tags" class="container chip-container">
-    <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">
-                <i class="fas fa-tags"></i>&nbsp;&nbsp;文章标签
-            </div>
-            <div class="tag-chips">
-                
-                
-                <a href="/tags/HTML/" title="HTML: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="HTML" style="background-color: #F9EBEA;">HTML
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Web/" title="Web: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Web" style="background-color: #F5EEF8;">Web
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E7%AE%97%E6%B3%95/" title="算法: 8">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            data-tagname="算法" style="background-color: #D5F5E3;">算法
-                        <span class="tag-length">8</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/" title="查找算法: 8">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="查找算法" style="background-color: #E8F8F5;">查找算法
-                        <span class="tag-length">8</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/KMP/" title="KMP: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="KMP" style="background-color: #FEF9E7;">KMP
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" title="二分查找: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="二分查找" style="background-color: #F8F9F9;">二分查找
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/BinarySearch/" title="BinarySearch: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="BinarySearch" style="background-color: #82E0AA;">BinarySearch
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E5%88%86%E5%9D%97%E6%9F%A5%E6%89%BE/" title="分块查找: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="分块查找" style="background-color: #D7BDE2;">分块查找
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/BlockingSearch/" title="BlockingSearch: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="BlockingSearch" style="background-color: #A3E4D7;">BlockingSearch
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" title="快速排序: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="快速排序" style="background-color: #85C1E9;">快速排序
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/QuickSort/" title="QuickSort: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="QuickSort" style="background-color: #F8C471;">QuickSort
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E6%9C%B4%E7%B4%A0%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/" title="朴素匹配算法: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="朴素匹配算法" style="background-color: #F9E79F;">朴素匹配算法
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/BruteForce/" title="BruteForce: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="BruteForce" style="background-color: #F8C471;">BruteForce
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E6%95%A3%E5%88%97%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/" title="散列查找算法: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="散列查找算法" style="background-color: #D5F5E3;">散列查找算法
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/HashTable/" title="HashTable: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="HashTable" style="background-color: #D7BDE2;">HashTable
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E9%A1%BA%E5%BA%8F%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/" title="顺序查找算法: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="顺序查找算法" style="background-color: #D5F5E3;">顺序查找算法
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/SeqSearch/" title="SeqSearch: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="SeqSearch" style="background-color: #A3E4D7;">SeqSearch
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-            </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
         </div>
     </div>
 </div>
 
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
     
 
-    <article id="articles" class="container articles">
-        <div class="row tags-posts">
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="算法, 查找算法, 散列查找算法, HashTable" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2023/04/17/cha-zhao-suan-fa-san-lie-cha-zhao-suan-fa/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="查找算法-散列查找算法">
-                            
-                            <span class="card-title">查找算法-散列查找算法</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-17
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/" class="post-category">
-                                查找算法
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="算法, 查找算法, 分块查找, BlockingSearch" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2023/04/17/cha-zhao-suan-fa-fen-kuai-cha-zhao-suan-fa/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="查找算法-分块查找算法">
-                            
-                            <span class="card-title">查找算法-分块查找算法</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-17
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/" class="post-category">
-                                查找算法
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="算法, 查找算法, 快速排序, QuickSort" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2023/04/16/cha-zhao-suan-fa-kuai-su-pai-xu-suan-fa/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="查找算法-快速排序算法">
-                            
-                            <span class="card-title">查找算法-快速排序算法</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-16
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/" class="post-category">
-                                查找算法
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="算法, 查找算法, 二分查找, BinarySearch" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2023/04/16/cha-zhao-suan-fa-er-fen-cha-zhao-suan-fa/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="查找算法-二分查找算法">
-                            
-                            <span class="card-title">查找算法-二分查找算法</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-16
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/" class="post-category">
-                                查找算法
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="算法, 查找算法, 顺序查找算法, SeqSearch" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2023/04/16/cha-zhao-suan-fa-shun-xu-cha-zhao-suan-fa/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="查找算法-顺序查找算法">
-                            
-                            <span class="card-title">查找算法-顺序查找算法</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-16
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/" class="post-category">
-                                查找算法
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="算法, 查找算法, 朴素匹配算法, BruteForce" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2023/04/16/cha-zhao-suan-fa-po-su-pi-pei-suan-fa/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="查找算法-朴素匹配算法">
-                            
-                            <span class="card-title">查找算法-朴素匹配算法</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-16
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/" class="post-category">
-                                查找算法
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="算法, 查找算法, KMP" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2023/04/16/cha-zhao-suan-fa-kmp-suan-fa/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="查找算法-KMP算法">
-                            
-                            <span class="card-title">查找算法-KMP算法</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-16
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/" class="post-category">
-                                查找算法
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="算法, 查找算法" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2023/04/16/cha-zhao-suan-fa-gai-shu/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="查找算法-概述">
-                            
-                            <span class="card-title">查找算法-概述</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-16
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/" class="post-category">
-                                查找算法
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-    </article>
 </main>
 
 

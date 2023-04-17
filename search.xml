@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>查找算法-散列查找算法</title>
+      <link href="/2023/04/17/cha-zhao-suan-fa-san-lie-cha-zhao-suan-fa/"/>
+      <url>/2023/04/17/cha-zhao-suan-fa-san-lie-cha-zhao-suan-fa/</url>
+      
+        <content type="html"><![CDATA[<h2 id="3-7-散列查找（hash查找）"><a href="#3-7-散列查找（hash查找）" class="headerlink" title="3.7 散列查找（hash查找）"></a>3.7 散列查找（hash查找）</h2><h3 id="3-7-1-基本概念"><a href="#3-7-1-基本概念" class="headerlink" title="3.7.1 基本概念"></a>3.7.1 基本概念</h3><p>散列函数</p><p>在进行查找时，在记录的存储位置与它的关键字之间建立一个确定的对应关系h,以线性表中每个元素的关键字K为自变量，通过函数h(K)计算出该元素的存储位置，我们将h函数称为散列函数或<a href="https://baike.baidu.com/item/%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0?fromModule=lemma_inlink">哈希函数</a>。h(K)的值称为散列地址或哈希地址。 [1] <strong>例：</strong></p><p>假定一个线性表为A&#x3D;(18,75,60,43,54,90,46)，选取散列函数为：</p><p>h(K)&#x3D;K%m 取m&#x3D;13</p><p>则得每个元素散列地址：</p><p>h(18)&#x3D;18 % 13&#x3D;5 h(75)&#x3D;75 % 13&#x3D;10 h(60)&#x3D;60 % 13&#x3D;8 h(43)&#x3D;43 % 13&#x3D;4</p><p>h(54)&#x3D;54 % 13&#x3D;2 h(90)&#x3D;90 % 13&#x3D;12 h(46)&#x3D;46 % 13&#x3D;7</p><p>根据散列地址，实现元素的存储映象H[m]：</p><table><thead><tr><th></th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th></tr></thead><tbody><tr><td>H</td><td></td><td></td><td>54</td><td></td><td>43</td><td>18</td><td></td><td>46</td><td>60</td><td></td><td>75</td><td></td><td>90</td></tr></tbody></table><p><strong>冲突：</strong>在实际应用中，通常可能出现一个待插入元素的散列地址单元已被占用情况，使得该元素无法直接存入此单元，这种情况称为冲突。</p><p><strong>同义词：</strong>具有不同关键字而具有相同散列地址的元素称为同义词，即key1≠key2，但h(key1)&#x3D;h(key2)。由同义词引起的冲突称作同义词冲突。</p><p>例：如向下表中再插入元素70时，70%13&#x3D;5，则出现了冲突</p><table><thead><tr><th></th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th></tr></thead><tbody><tr><td>H</td><td></td><td></td><td>54</td><td></td><td>43</td><td>18</td><td></td><td>46</td><td>60</td><td></td><td>75</td><td></td><td>90</td></tr></tbody></table><p>装填因子(α)：指散列表中已存入的元素数n与散列表空间大小m的比值,即：α&#x3D;n&#x2F;m。当α越小时，冲突可能性就越小，但同时，存储空间利用率就越低。</p><p>散列表：根据设定的哈希函数及处理冲突的方法将一组关键字映象到一个有限的连续的地址集上，即把记录存放在表中映象的位置上，这种表便称为散列表(哈希表)。</p><p>一个散列表的好坏与三个因素有关：</p><ul><li>装填因子</li><li>所采用的散列函数</li><li>解决冲突的方法</li></ul><h3 id="3-7-2-散列函数"><a href="#3-7-2-散列函数" class="headerlink" title="3.7.2 散列函数"></a>3.7.2 散列函数</h3><p>构造散列函数的目标是使散列地址尽可能均匀分布在散列空间上，同时使计算尽可能简单，以节省计算时间。</p><h4 id="直接定址法"><a href="#直接定址法" class="headerlink" title="直接定址法"></a>直接定址法</h4><p>以关键字K本身或关键字加上某个数值常量C作为散列地址的方法，对应的散列函数：<br>$$<br>h(K) &#x3D; K+C(C为常数)<br>$$</p><h4 id="除留余数法"><a href="#除留余数法" class="headerlink" title="除留余数法"></a>除留余数法</h4><p>以关键字K除以散列长度m所得余数作为散列地址的方法，对应的散列函数：<br>$$<br>h(K)&#x3D;K 取余 m \<br>m:散列表长<br>$$</p><h4 id="数字分析法"><a href="#数字分析法" class="headerlink" title="数字分析法"></a>数字分析法</h4><p>当关键码的位数很多时，可以通过对关键码的各位进行分析，丢掉分布不均的位，留下分布均与的位作为散列值。数字分析法只适合于静态的关键码值集合，当关键码值发生变化后，必须重新进行数字分析。这无疑限制了数字分析法在实际中的应用。</p><p><strong>例：</strong>有一组关键字如下：</p><p>92326875</p><p>92739628</p><p>92343634</p><p>92706816</p><p>92774638</p><p>92381262</p><p>92394220</p><p>通过分析：每个关键字从左到右第1、2、3位和第6位取值较集中，不宜作散列地址，其余的第4、5、7、8位取值分散，可以选择，若取最后两位作散列地址，得：</p><p><strong>(2,75,28,34,16,38,62,20)</strong></p><h4 id="平方取中法"><a href="#平方取中法" class="headerlink" title="平方取中法"></a>平方取中法</h4><p>取关键字平方的中间几位作为散列地址的方法，由平方取中法得到的散列地址同关键字的每一位都有关，使得散列地址有较好分散性。</p><p>它适用于关键字中每一位取值都不够分散或者较分散的位数小于散列地址所需要的位数的情况。</p><h4 id="折叠法"><a href="#折叠法" class="headerlink" title="折叠法"></a>折叠法</h4><p>首先将关键字分割成位数相同的几段(最后一段位数可少一些)，然后将它们的叠加和(舍去最高位进位)作为散列地址的方法。</p><h4 id="随机乘数法"><a href="#随机乘数法" class="headerlink" title="随机乘数法"></a>随机乘数法</h4><p>随机乘数法使用一个随机实数f(0≤f&lt;1)。成绩f*key的分数部分在0―1之间，用这个分数部分的值与n（散列表的长度）相乘，乘积的整数部分就是对应的散列值，显然这个散列值落在0—n-1之间。</p><h4 id="基数转换法"><a href="#基数转换法" class="headerlink" title="基数转换法"></a>基数转换法</h4><p>将关键码值看成是在另一个基数数制上的书，然后把它转化成原来基数上的数，再选择其中的若干位作为散列值。一般取大于原来基数的数作为转换的基数，并且两个基数应该是互素的。</p><p>例子：采用基数转换法，计算十进制关键码值key&#x3D;852422241的散列值，取转换基数为13，则有：&#x3D;8 * 5 *</p><p>取转换后的数值的中间4为数字作为散列值，于是Hash(key)&#x3D;0789。</p><p>引用：</p><blockquote><p>1.<a href="https://baike.baidu.com/item/%E6%95%A3%E5%88%97%E6%9F%A5%E6%89%BE/4146554?fr=aladdin">散列查找</a></p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 查找算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+            <tag> 查找算法 </tag>
+            
+            <tag> 散列查找算法 </tag>
+            
+            <tag> HashTable </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>查找算法-分块查找算法</title>
       <link href="/2023/04/17/cha-zhao-suan-fa-fen-kuai-cha-zhao-suan-fa/"/>
       <url>/2023/04/17/cha-zhao-suan-fa-fen-kuai-cha-zhao-suan-fa/</url>

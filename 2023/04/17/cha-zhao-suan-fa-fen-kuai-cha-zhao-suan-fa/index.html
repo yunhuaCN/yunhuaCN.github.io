@@ -4,8 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="查找算法-KMP算法, yunhua">
-    <meta name="description" content="3.1 KMP算法3.1.1 简介KMP算法是一种改进的$\color{orange} {字符串匹配算法}$。KMP算法是三位学者在 Brute-Force算法的基础上同时提出的模式匹配的改进算法。Brute- Force算法在模式串中有多">
+    <meta name="keywords" content="查找算法-分块查找算法, yunhua">
+    <meta name="description" content="3.6 分块查找3.6.1 简介分块查找是折半查找和顺序查找的一种改进方法，分块查找由于只要求索引表是有序的，对块内节点没有排序要求，因此特别适合于j节点动态变化的情况。
+分块查找是折半查找和顺序查找的一种改进方法，折半查找虽然具有很好的性">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>查找算法-KMP算法 | yunhua</title>
+    <title>查找算法-分块查找算法 | yunhua</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -453,12 +454,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">查找算法-KMP算法</h1>
+                    <h1 class="description center-align post-title">查找算法-分块查找算法</h1>
                 </div>
             </div>
         </div>
@@ -490,8 +491,12 @@
                                 <span class="chip bg-color">查找算法</span>
                             </a>
                         
-                            <a href="/tags/KMP/">
-                                <span class="chip bg-color">KMP</span>
+                            <a href="/tags/%E5%88%86%E5%9D%97%E6%9F%A5%E6%89%BE/">
+                                <span class="chip bg-color">分块查找</span>
+                            </a>
+                        
+                            <a href="/tags/BlockingSearch/">
+                                <span class="chip bg-color">BlockingSearch</span>
                             </a>
                         
                     </div>
@@ -515,14 +520,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-04-16
+                    2023-04-17
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-04-16
+                    2023-04-17
                 </div>
                 
 
@@ -536,7 +541,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    3 分
                 </div>
                 
 
@@ -559,76 +564,25 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="3-1-KMP算法"><a href="#3-1-KMP算法" class="headerlink" title="3.1 KMP算法"></a>3.1 KMP算法</h2><h3 id="3-1-1-简介"><a href="#3-1-1-简介" class="headerlink" title="3.1.1 简介"></a>3.1.1 简介</h3><p>KMP算法是一种改进的$\color{orange} {字符串匹配算法}$。KMP算法是三位学者在 Brute-Force算法的基础上同时提出的模式匹配的改进算法。Brute- Force算法在模式串中有多个字符和主串中的若干个连续字符比较都相等,但最后一个字符比较不相等时,主串的比较位置需要回退。KMP算法在上述情况下,主串位置不需要回退,从而可以大大提高效率。</p>
-<h3 id="3-1-2-KMP算法解决的问题模型"><a href="#3-1-2-KMP算法解决的问题模型" class="headerlink" title="3.1.2 KMP算法解决的问题模型"></a>3.1.2 KMP算法解决的问题模型</h3><p>KMP算法算是朴素匹配算法的优化版本，在从主串中寻找子串的时候遇到主串字符数特别大，此时使用朴素匹配算法的时间复杂度就很高，但空间复杂度很低。而使用KMP算法就可以降低时间复杂度</p>
-<h3 id="3-1-3-介绍"><a href="#3-1-3-介绍" class="headerlink" title="3.1.3 介绍"></a>3.1.3 介绍</h3><h4 id="1-最长公共前缀和后缀"><a href="#1-最长公共前缀和后缀" class="headerlink" title="1.最长公共前缀和后缀"></a>1.最长公共前缀和后缀</h4><p><img src="/../Markdown_images/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95-KMP%E7%AE%97%E6%B3%95/1.png" alt="img"></p>
-<p>如上图举例：</p>
-<blockquote>
-<p>比如一个字符串：<code>abbccdabb</code><br>它的前缀集合为：<code>a、ab、abb、abbc、abbcc、abbccd、abbccda、abbccdab</code><br>它的后缀集合为：<code>b、bb、abb、dabb、cdabb、ccdabb、bccdabb、bbccdabb</code><br>可以看出来，最长的前缀和后缀相等的不就是<code>abb</code>吗。<br>所以$\color{orange} {最长公共前缀和后缀}$就是<code>abb</code></p>
-</blockquote>
-<h4 id="2-图解KMP"><a href="#2-图解KMP" class="headerlink" title="2.图解KMP"></a>2.图解KMP</h4><p>第一个长条代表主串，第二个长条代表子串。红色部分代表两串中已匹配的部分，绿色和蓝色部分分别代表主串和子串中不匹配的字符。</p>
-<p><img src="/../Markdown_images/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95-KMP%E7%AE%97%E6%B3%95/2.png" alt="img"></p>
-<p><img src="/../Markdown_images/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95-KMP%E7%AE%97%E6%B3%95/3.png" alt="img"></p>
-<p>现在发现了不匹配的地方，根据KMP算法，我们要将字串向后移动，现在要确定移动多少的问题。<br>这个时候之前提到的最长相等前后缀就派上用场了。</p>
-<p>可以看到原来红色部分的最长相等前缀和后缀是ab，所以字串移动的距离就是ab两个字符串的长度，移动距离为2。<br>移动完成的效果如图所示：</p>
-<p><img src="/../Markdown_images/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95-KMP%E7%AE%97%E6%B3%95/4.png" alt="img"></p>
-<p><img src="/../Markdown_images/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95-KMP%E7%AE%97%E6%B3%95/5.png" alt="img"></p>
-<p>这一步弄懂了，KMP算法的精髓基本就掌握差不多了。<br>接下来的就是一个循环的过程，我们之前所说的，每一个字符前的字符串都有最长相等前后缀，而且最长相等前后缀的长度是我们移位的关键，所以我们单独用一个next数组存储子串的最长相等前后缀的长度。而且next数组的数值只与子串本身有关。<br>所以next[i]&#x3D;j,含义是：下标为i 的字符前的字符串最长相等前后缀的长度为j。<br>所以我们可以算出来next数组的具体的数值，如下表所示：</p>
-<table>
-<thead>
-<tr>
-<th><strong>next[0]</strong></th>
-<th><strong>next[1]</strong></th>
-<th><strong>next[2]</strong></th>
-<th><strong>next3]</strong></th>
-<th><strong>next[4]</strong></th>
-<th><strong>next[5]</strong></th>
-<th><strong>next[6]</strong></th>
-<th><strong>next[7]</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>-1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>2</td>
-<td>3</td>
-<td>0</td>
-</tr>
-</tbody></table>
-<p>我们把子串移动，也就是让s[5]与t[5]前面字符串的最长相等前缀后一个字符再比较，而该字符的位置就是t[？],很明显这里的？是2，就是不匹配的字符前的字符串 最长相等前后缀的长度。</p>
-<p><img src="/../Markdown_images/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95-KMP%E7%AE%97%E6%B3%95/6.png" alt="img"></p>
-<p>也是不匹配的字符处的next数组next[5]应该保存的值，也是子串回溯后应该对应的字符的下标。 所以？&#x3D;next[5]&#x3D;2。接下来就是比对是s[5]和t[next[5]]的字符。这里也是最奇妙的地方，也是为什么KMP算法的代码可以那么简洁优雅的关键。</p>
-<p>next数组作用有两个：</p>
-<ol>
-<li>next[i]的值表示下标为i的字符前的字符串最长相等前后缀的长度。</li>
-<li>表示该处字符不匹配时应该回溯到的字符的下标.</li>
-</ol>
-<h3 id="3-1-4-代码"><a href="#3-1-4-代码" class="headerlink" title="3.1.4 代码"></a>3.1.4 代码</h3><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int KMPIndex(SqString s,SqString t)  &#x2F;&#x2F;KMP算法
-&#123;
-
-	int next[MaxSize],i&#x3D;0,j&#x3D;0;
-	GetNext(t,next);
-	while (i&lt;s.length &amp;&amp; j&lt;t.length) 
-	&#123;
-		if (j&#x3D;&#x3D;-1 || s.data[i]&#x3D;&#x3D;t.data[j]) 
-		&#123;
-			i++;j++;  			&#x2F;&#x2F;i,j各增1
-		&#125;
-		else j&#x3D;next[j]; 		&#x2F;&#x2F;i不变,j后退，现在知道为什么这样让子串回退了吧
-    &#125;
-    if (j&gt;&#x3D;t.length)
-		return(i-t.length);  	&#x2F;&#x2F;返回匹配模式串的首字符下标
-    else  
-		return(-1);        		&#x2F;&#x2F;返回不匹配标志
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>引用：</p>
-<blockquote>
-<p>1.<a target="_blank" rel="noopener" href="http://t.csdn.cn/zFlHG">KMP算法的详细讲解。（适用于所有的字串查找问题。）</a></p>
-</blockquote>
+                <h2 id="3-6-分块查找"><a href="#3-6-分块查找" class="headerlink" title="3.6 分块查找"></a>3.6 分块查找</h2><h3 id="3-6-1-简介"><a href="#3-6-1-简介" class="headerlink" title="3.6.1 简介"></a>3.6.1 简介</h3><p>分块查找是折半查找和顺序查找的一种改进方法，分块查找由于只要求索引表是<code>有序</code>的，对块内节点没有排序要求，因此特别适合于<code>j节点动态变化</code>的情况。</p>
+<p>分块查找是折半查找和顺序查找的一种改进方法，折半查找虽然具有很好的性能，但其前提条件时线性表顺序存储而且按照关键码排序，这一前提条件在结点树很大且表元素动态变化时是难以满足的。而顺序查找可以解决表元素动态变化的要求，但查找效率很低。如果既要保持对线性表的查找具有较快的速度，又要能够满足表元素动态变化的要求，则可采用分块查找的方法。</p>
+<p>分块查找的速度虽然不如折半查找算法，但比顺序查找算法快得多，同时又不需要对全部节点进行排序。当节点很多且块数很大时，对索引表可以采用折半查找，这样能够进一步提高查找的速度。 [1] </p>
+<p>分块查找由于只要求索引表是有序的，对块内节点没有排序要求，因此特别适合于节点动态变化的情况。当增加或减少节以及节点的关键码改变时，只需将该节点调整到所在的块即可。在空间复杂性上，分块查找的主要代价是增加了一个辅助数组。</p>
+<p>需要注意的是，当节点变化很频繁时，可能会导致块与块之间的节点数相差很大，没写快具有很多节点，而另一些块则可能只有很少节点，这将会导致查找效率的下降。</p>
+<h3 id="3-6-2-算法描述"><a href="#3-6-2-算法描述" class="headerlink" title="3.6.2 算法描述"></a>3.6.2 算法描述</h3><p>分块查找要求把一个大的线性表分解成若干块，每块中的节点可以任意存放，但块与块之间必须排序。假设是按关键码值非递减的，那么这种块与块之间必须满足已排序要求，实际上就是对于任意的i，第i块中的所有节点的关键码值都必须小于第i+1块中的所有节点的关键码值。此外，还要建立一个索引表，把每块中的最大关键码值作为索引表的关键码值，按块的顺序存放到一个辅助数组中，显然这个辅助数组是按关键码值费递减排序的。查找时，首先在索引表中进行查找，确定要找的节点所在的块。由于索引表是排序的，因此，对索引表的查找可以采用顺序查找或折半查找；然后，在相应的块中采用顺序查找，即可找到对应的节点。</p>
+<p>分块查找在现实生活中也很常用。例如，一个学校有很多个班级，每个班级有几十个学生。给定一个学生的学号，要求查找这个学生的相关资料。显然，每个班级的学生档案是分开存放的，没有任何两个班级的学生的学号是交叉重叠的，那么最好的查找方法实现确定这个学生所在的班级，然后再在这个学生所在班级的学生档案中查找这个学生的资料。上述查找学生资料的过程，实际上就是一个典型的分块查找。</p>
+<h3 id="3-6-3-过程"><a href="#3-6-3-过程" class="headerlink" title="3.6.3 过程"></a>3.6.3 过程</h3><ul>
+<li><p>先选取<strong>各块</strong>中的<strong>最大关键字</strong>构成一个<strong>索引表</strong>；</p>
+</li>
+<li><p>查找分两个部分：先对索引表进行<strong>二分查找</strong>或<strong>顺序查找</strong>，以<strong>确定待查记录</strong>在<strong>哪一块</strong>中；然后，在已确定的块中用<strong>顺序法</strong>进行查找。</p>
+<p>  示例</p>
+<p>  <img src="/../Markdown_images/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95-%E5%88%86%E5%9D%97%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/1.png" alt="分块查找算法实例"></p>
+</li>
+<li><p>在索引表中确定自己待查记录所在的块。由于块间有序，即索引表中的元素是有序的，故可以采用折半查找或顺序查找索引表。</p>
+</li>
+<li><p>在块内顺序查找该待查记录。由于块内无序，故只能采用顺序查找</p>
+</li>
+</ul>
 
                 
             </div>
@@ -655,7 +609,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yunhuaCN.github.io/2023/04/16/cha-zhao-suan-fa-kmp-suan-fa/">http://yunhuaCN.github.io/2023/04/16/cha-zhao-suan-fa-kmp-suan-fa/</a>
+                    <a href="http://yunhuaCN.github.io/2023/04/17/cha-zhao-suan-fa-fen-kuai-cha-zhao-suan-fa/">http://yunhuaCN.github.io/2023/04/17/cha-zhao-suan-fa-fen-kuai-cha-zhao-suan-fa/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -701,8 +655,12 @@
                                     <span class="chip bg-color">查找算法</span>
                                 </a>
                             
-                                <a href="/tags/KMP/">
-                                    <span class="chip bg-color">KMP</span>
+                                <a href="/tags/%E5%88%86%E5%9D%97%E6%9F%A5%E6%89%BE/">
+                                    <span class="chip bg-color">分块查找</span>
+                                </a>
+                            
+                                <a href="/tags/BlockingSearch/">
+                                    <span class="chip bg-color">BlockingSearch</span>
                                 </a>
                             
                         </div>
@@ -781,17 +739,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/04/16/cha-zhao-suan-fa-po-su-pi-pei-suan-fa/">
+                <a href="/2023/04/17/cha-zhao-suan-fa-fen-kuai-cha-zhao-suan-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="查找算法-朴素匹配算法">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="查找算法-分块查找算法">
                         
-                        <span class="card-title">查找算法-朴素匹配算法</span>
+                        <span class="card-title">查找算法-分块查找算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -801,9 +760,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-17
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -816,6 +775,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -827,12 +787,12 @@
                         <span class="chip bg-color">查找算法</span>
                     </a>
                     
-                    <a href="/tags/%E6%9C%B4%E7%B4%A0%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">朴素匹配算法</span>
+                    <a href="/tags/%E5%88%86%E5%9D%97%E6%9F%A5%E6%89%BE/">
+                        <span class="chip bg-color">分块查找</span>
                     </a>
                     
-                    <a href="/tags/BruteForce/">
-                        <span class="chip bg-color">BruteForce</span>
+                    <a href="/tags/BlockingSearch/">
+                        <span class="chip bg-color">BlockingSearch</span>
                     </a>
                     
                 </div>
@@ -846,13 +806,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/04/16/cha-zhao-suan-fa-gai-shu/">
+                <a href="/2023/04/16/cha-zhao-suan-fa-kuai-su-pai-xu-suan-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="查找算法-概述">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="查找算法-快速排序算法">
                         
-                        <span class="card-title">查找算法-概述</span>
+                        <span class="card-title">查找算法-快速排序算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -886,6 +846,14 @@
                     
                     <a href="/tags/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/">
                         <span class="chip bg-color">查找算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/">
+                        <span class="chip bg-color">快速排序</span>
+                    </a>
+                    
+                    <a href="/tags/QuickSort/">
+                        <span class="chip bg-color">QuickSort</span>
                     </a>
                     
                 </div>

@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="查找算法-KMP算法, yunhua">
-    <meta name="description" content="3.1 KMP算法3.1.1 简介KMP算法是一种改进的$\color{orange} {字符串匹配算法}$。KMP算法是三位学者在 Brute-Force算法的基础上同时提出的模式匹配的改进算法。Brute- Force算法在模式串中有多">
+    <meta name="keywords" content="标签: 分块查找, yunhua">
+    <meta name="description" content="SIMPLE">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>查找算法-KMP算法 | yunhua</title>
+    <title>标签: 分块查找 | yunhua</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -52,7 +52,7 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0"></head>
+</head>
 
 
 <body>
@@ -449,601 +449,245 @@
 
 </header>
 
-    
-
-
-
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
-    <div class="container" style="right: 0px;left: 0px;">
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="brand">
-                    <h1 class="description center-align post-title">查找算法-KMP算法</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-<main class="post-container content">
-
-    
+    <div class="bg-cover pd-header about-cover">
+    <div class="container">
     <div class="row">
-    <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
-<div id="artDetail">
+    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+        <div class="brand">
+            <div class="title center-align">
+                
+                韵华
+                
+            </div>
+
+            <div class="description center-align">
+                
+                <span id="subtitle"></span>
+                <script src="/libs/typed/typed.js"></script>
+                <script>
+                    var typed = new Typed("#subtitle", {
+                        strings: [ 
+                            
+                                "从来没有真正的绝境, 只有心灵的迷途",
+                            
+                                "Never really desperate, only the lost of the soul",
+                            
+                        ],
+                        startDelay: 300,
+                        typeSpeed: 100,
+                        loop: true,
+                        backSpeed: 50,
+                        showCursor: true
+                    });
+                </script>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    // 每天切换 banner 图.  Switch banner image every day.
+    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
+    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+</script>
+
+
+    </div>
+</div>
+
+<main class="content">
+
+    
+
+<div id="tags" class="container chip-container">
     <div class="card">
-        <div class="card-content article-info">
-            <div class="row tag-cate">
-                <div class="col s7">
-                    
-                    <div class="article-tag">
-                        
-                            <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                <span class="chip bg-color">算法</span>
-                            </a>
-                        
-                            <a href="/tags/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/">
-                                <span class="chip bg-color">查找算法</span>
-                            </a>
-                        
-                            <a href="/tags/KMP/">
-                                <span class="chip bg-color">KMP</span>
-                            </a>
-                        
-                    </div>
-                    
-                </div>
-                <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/" class="post-category">
-                                查找算法
-                            </a>
-                        
-                    </div>
-                    
-                </div>
+        <div class="card-content">
+            <div class="tag-title center-align">
+                <i class="fas fa-tags"></i>&nbsp;&nbsp;文章标签
             </div>
-
-            <div class="post-info">
+            <div class="tag-chips">
                 
-                <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-04-16
-                </div>
                 
-
+                <a href="/tags/HTML/" title="HTML: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="HTML" style="background-color: #F9EBEA;">HTML
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
                 
-                <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-04-16
-                </div>
                 
-
+                <a href="/tags/Web/" title="Web: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Web" style="background-color: #F5EEF8;">Web
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
                 
-                <div class="info-break-policy">
-                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
-                </div>
                 
-
+                <a href="/tags/%E7%AE%97%E6%B3%95/" title="算法: 7">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="算法" style="background-color: #D5F5E3;">算法
+                        <span class="tag-length">7</span>
+                    </span>
+                </a>
                 
-                <div class="info-break-policy">
-                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
-                </div>
                 
-
+                <a href="/tags/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/" title="查找算法: 7">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="查找算法" style="background-color: #E8F8F5;">查找算法
+                        <span class="tag-length">7</span>
+                    </span>
+                </a>
                 
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
+                
+                <a href="/tags/KMP/" title="KMP: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="KMP" style="background-color: #FEF9E7;">KMP
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" title="二分查找: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="二分查找" style="background-color: #F8F9F9;">二分查找
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/BinarySearch/" title="BinarySearch: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="BinarySearch" style="background-color: #82E0AA;">BinarySearch
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E5%88%86%E5%9D%97%E6%9F%A5%E6%89%BE/" title="分块查找: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-active "
+                            data-tagname="分块查找" style="background-color: #D7BDE2;">分块查找
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/BlockingSearch/" title="BlockingSearch: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="BlockingSearch" style="background-color: #A3E4D7;">BlockingSearch
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" title="快速排序: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="快速排序" style="background-color: #85C1E9;">快速排序
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/QuickSort/" title="QuickSort: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="QuickSort" style="background-color: #F8C471;">QuickSort
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E6%9C%B4%E7%B4%A0%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/" title="朴素匹配算法: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="朴素匹配算法" style="background-color: #F9E79F;">朴素匹配算法
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/BruteForce/" title="BruteForce: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="BruteForce" style="background-color: #F8C471;">BruteForce
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E9%A1%BA%E5%BA%8F%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/" title="顺序查找算法: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="顺序查找算法" style="background-color: #D5F5E3;">顺序查找算法
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/SeqSearch/" title="SeqSearch: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="SeqSearch" style="background-color: #A3E4D7;">SeqSearch
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
             </div>
         </div>
-        <hr class="clearfix">
-
-        
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.min.css">
-        
-
-        
-
-        <div class="card-content article-card-content">
-            <div id="articleContent">
-                <h2 id="3-1-KMP算法"><a href="#3-1-KMP算法" class="headerlink" title="3.1 KMP算法"></a>3.1 KMP算法</h2><h3 id="3-1-1-简介"><a href="#3-1-1-简介" class="headerlink" title="3.1.1 简介"></a>3.1.1 简介</h3><p>KMP算法是一种改进的$\color{orange} {字符串匹配算法}$。KMP算法是三位学者在 Brute-Force算法的基础上同时提出的模式匹配的改进算法。Brute- Force算法在模式串中有多个字符和主串中的若干个连续字符比较都相等,但最后一个字符比较不相等时,主串的比较位置需要回退。KMP算法在上述情况下,主串位置不需要回退,从而可以大大提高效率。</p>
-<h3 id="3-1-2-KMP算法解决的问题模型"><a href="#3-1-2-KMP算法解决的问题模型" class="headerlink" title="3.1.2 KMP算法解决的问题模型"></a>3.1.2 KMP算法解决的问题模型</h3><p>KMP算法算是朴素匹配算法的优化版本，在从主串中寻找子串的时候遇到主串字符数特别大，此时使用朴素匹配算法的时间复杂度就很高，但空间复杂度很低。而使用KMP算法就可以降低时间复杂度</p>
-<h3 id="3-1-3-介绍"><a href="#3-1-3-介绍" class="headerlink" title="3.1.3 介绍"></a>3.1.3 介绍</h3><h4 id="1-最长公共前缀和后缀"><a href="#1-最长公共前缀和后缀" class="headerlink" title="1.最长公共前缀和后缀"></a>1.最长公共前缀和后缀</h4><p><img src="/../Markdown_images/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95-KMP%E7%AE%97%E6%B3%95/1.png" alt="img"></p>
-<p>如上图举例：</p>
-<blockquote>
-<p>比如一个字符串：<code>abbccdabb</code><br>它的前缀集合为：<code>a、ab、abb、abbc、abbcc、abbccd、abbccda、abbccdab</code><br>它的后缀集合为：<code>b、bb、abb、dabb、cdabb、ccdabb、bccdabb、bbccdabb</code><br>可以看出来，最长的前缀和后缀相等的不就是<code>abb</code>吗。<br>所以$\color{orange} {最长公共前缀和后缀}$就是<code>abb</code></p>
-</blockquote>
-<h4 id="2-图解KMP"><a href="#2-图解KMP" class="headerlink" title="2.图解KMP"></a>2.图解KMP</h4><p>第一个长条代表主串，第二个长条代表子串。红色部分代表两串中已匹配的部分，绿色和蓝色部分分别代表主串和子串中不匹配的字符。</p>
-<p><img src="/../Markdown_images/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95-KMP%E7%AE%97%E6%B3%95/2.png" alt="img"></p>
-<p><img src="/../Markdown_images/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95-KMP%E7%AE%97%E6%B3%95/3.png" alt="img"></p>
-<p>现在发现了不匹配的地方，根据KMP算法，我们要将字串向后移动，现在要确定移动多少的问题。<br>这个时候之前提到的最长相等前后缀就派上用场了。</p>
-<p>可以看到原来红色部分的最长相等前缀和后缀是ab，所以字串移动的距离就是ab两个字符串的长度，移动距离为2。<br>移动完成的效果如图所示：</p>
-<p><img src="/../Markdown_images/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95-KMP%E7%AE%97%E6%B3%95/4.png" alt="img"></p>
-<p><img src="/../Markdown_images/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95-KMP%E7%AE%97%E6%B3%95/5.png" alt="img"></p>
-<p>这一步弄懂了，KMP算法的精髓基本就掌握差不多了。<br>接下来的就是一个循环的过程，我们之前所说的，每一个字符前的字符串都有最长相等前后缀，而且最长相等前后缀的长度是我们移位的关键，所以我们单独用一个next数组存储子串的最长相等前后缀的长度。而且next数组的数值只与子串本身有关。<br>所以next[i]&#x3D;j,含义是：下标为i 的字符前的字符串最长相等前后缀的长度为j。<br>所以我们可以算出来next数组的具体的数值，如下表所示：</p>
-<table>
-<thead>
-<tr>
-<th><strong>next[0]</strong></th>
-<th><strong>next[1]</strong></th>
-<th><strong>next[2]</strong></th>
-<th><strong>next3]</strong></th>
-<th><strong>next[4]</strong></th>
-<th><strong>next[5]</strong></th>
-<th><strong>next[6]</strong></th>
-<th><strong>next[7]</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>-1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>2</td>
-<td>3</td>
-<td>0</td>
-</tr>
-</tbody></table>
-<p>我们把子串移动，也就是让s[5]与t[5]前面字符串的最长相等前缀后一个字符再比较，而该字符的位置就是t[？],很明显这里的？是2，就是不匹配的字符前的字符串 最长相等前后缀的长度。</p>
-<p><img src="/../Markdown_images/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95-KMP%E7%AE%97%E6%B3%95/6.png" alt="img"></p>
-<p>也是不匹配的字符处的next数组next[5]应该保存的值，也是子串回溯后应该对应的字符的下标。 所以？&#x3D;next[5]&#x3D;2。接下来就是比对是s[5]和t[next[5]]的字符。这里也是最奇妙的地方，也是为什么KMP算法的代码可以那么简洁优雅的关键。</p>
-<p>next数组作用有两个：</p>
-<ol>
-<li>next[i]的值表示下标为i的字符前的字符串最长相等前后缀的长度。</li>
-<li>表示该处字符不匹配时应该回溯到的字符的下标.</li>
-</ol>
-<h3 id="3-1-4-代码"><a href="#3-1-4-代码" class="headerlink" title="3.1.4 代码"></a>3.1.4 代码</h3><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int KMPIndex(SqString s,SqString t)  &#x2F;&#x2F;KMP算法
-&#123;
-
-	int next[MaxSize],i&#x3D;0,j&#x3D;0;
-	GetNext(t,next);
-	while (i&lt;s.length &amp;&amp; j&lt;t.length) 
-	&#123;
-		if (j&#x3D;&#x3D;-1 || s.data[i]&#x3D;&#x3D;t.data[j]) 
-		&#123;
-			i++;j++;  			&#x2F;&#x2F;i,j各增1
-		&#125;
-		else j&#x3D;next[j]; 		&#x2F;&#x2F;i不变,j后退，现在知道为什么这样让子串回退了吧
-    &#125;
-    if (j&gt;&#x3D;t.length)
-		return(i-t.length);  	&#x2F;&#x2F;返回匹配模式串的首字符下标
-    else  
-		return(-1);        		&#x2F;&#x2F;返回不匹配标志
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>引用：</p>
-<blockquote>
-<p>1.<a target="_blank" rel="noopener" href="http://t.csdn.cn/zFlHG">KMP算法的详细讲解。（适用于所有的字串查找问题。）</a></p>
-</blockquote>
-
-                
-            </div>
-            <hr/>
-
-            
-
-    <div class="reprint" id="reprint-statement">
-        
-            <div class="reprint__author">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-user">
-                        文章作者:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">韵华</a>
-                </span>
-            </div>
-            <div class="reprint__type">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-link">
-                        文章链接:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    <a href="http://yunhuaCN.github.io/2023/04/16/cha-zhao-suan-fa-kmp-suan-fa/">http://yunhuaCN.github.io/2023/04/16/cha-zhao-suan-fa-kmp-suan-fa/</a>
-                </span>
-            </div>
-            <div class="reprint__notice">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-copyright">
-                        版权声明:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    本博客所有文章除特別声明外，均采用
-                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
-                    许可协议。转载请注明来源
-                    <a href="/about" target="_blank">韵华</a>
-                    !
-                </span>
-            </div>
-        
     </div>
+</div>
 
-    <script async defer>
-      document.addEventListener("copy", function (e) {
-        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
-        M.toast({html: toastHTML})
-      });
+    
 
-      function navToReprintStatement() {
-        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
-      }
-    </script>
-
-
-
-            <div class="tag_share" style="display: block;">
-                <div class="post-meta__tag-list" style="display: inline-block;">
-                    
-                        <div class="article-tag">
+    <article id="articles" class="container articles">
+        <div class="row tags-posts">
+            
+            
+            <div class="article tag-post col s12 m6 l4" data-tags="算法, 查找算法, 分块查找, BlockingSearch" data-aos="fade-up">
+                <div class="card">
+                    <a href="/2023/04/17/cha-zhao-suan-fa-fen-kuai-cha-zhao-suan-fa/">
+                        <div class="card-image tag-image">
                             
-                                <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                    <span class="chip bg-color">算法</span>
-                                </a>
                             
-                                <a href="/tags/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/">
-                                    <span class="chip bg-color">查找算法</span>
-                                </a>
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="查找算法-分块查找算法">
                             
-                                <a href="/tags/KMP/">
-                                    <span class="chip bg-color">KMP</span>
-                                </a>
-                            
+                            <span class="card-title">查找算法-分块查找算法</span>
                         </div>
-                    
-                </div>
-                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
-                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
-<div id="article-share">
-
-    
-    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
-    <script src="/libs/share/js/social-share.min.js"></script>
-    
-
-    
-
-</div>
-
-                </div>
-            </div>
-            
-                <div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
-
-            
-        </div>
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-<article id="prenext-posts" class="prev-next articles">
-    <div class="row article-row">
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
-            <div class="card">
-                <a href="/2023/04/16/cha-zhao-suan-fa-po-su-pi-pei-suan-fa/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="查找算法-朴素匹配算法">
-                        
-                        <span class="card-title">查找算法-朴素匹配算法</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-16
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/" class="post-category">
-                                    查找算法
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
                     </a>
-                    
-                    <a href="/tags/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">查找算法</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%9C%B4%E7%B4%A0%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">朴素匹配算法</span>
-                    </a>
-                    
-                    <a href="/tags/BruteForce/">
-                        <span class="chip bg-color">BruteForce</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2023/04/16/cha-zhao-suan-fa-gai-shu/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="查找算法-概述">
-                        
-                        <span class="card-title">查找算法-概述</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
+                    <div class="card-content article-content">
+                        <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-17
                             </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/" class="post-category">
-                                    查找算法
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/" class="post-category">
+                                查找算法
                                 </a>
-                            
-                            
-                        </span>
+                                
+                                
+                            </span>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">查找算法</span>
-                    </a>
-                    
-                </div>
-                
             </div>
+            
         </div>
-        
-    </div>
-</article>
-
-</div>
-
-
-<script>
-    $('#articleContent').on('copy', function (e) {
-        // IE8 or earlier browser is 'undefined'
-        if (typeof window.getSelection === 'undefined') return;
-
-        var selection = window.getSelection();
-        // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('50')) {
-            return;
-        }
-
-        // create a div outside of the visible area and fill it with the selected text.
-        var bodyElement = document.getElementsByTagName('body')[0];
-        var newdiv = document.createElement('div');
-        newdiv.style.position = 'absolute';
-        newdiv.style.left = '-99999px';
-        bodyElement.appendChild(newdiv);
-        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
-
-        // we need a <pre> tag workaround.
-        // otherwise the text inside "pre" loses all the line breaks!
-        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
-            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
-        }
-
-        var url = document.location.href;
-        newdiv.innerHTML += '<br />'
-            + '来源: yunhua<br />'
-            + '文章作者: 韵华<br />'
-            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
-            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
-
-        selection.selectAllChildren(newdiv);
-        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
-    });
-</script>
-
-
-<!-- 代码块功能依赖 -->
-<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
-
-
-  <!-- 是否加载使用自带的 prismjs. -->
-  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
-
-
-<!-- 代码语言 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
-
-
-<!-- 代码块复制 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
-
-
-<!-- 代码块收缩 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
-
-
-
-    </div>
-    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
-        <div class="toc-widget card" style="background-color: white;">
-            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
-            <div id="toc-content"></div>
-        </div>
-    </div>
-</div>
-
-<!-- TOC 悬浮按钮. -->
-
-<div id="floating-toc-btn" class="hide-on-med-and-down">
-    <a class="btn-floating btn-large bg-color">
-        <i class="fas fa-list-ul"></i>
-    </a>
-</div>
-
-
-<script src="/libs/tocbot/tocbot.min.js"></script>
-<script>
-    $(function () {
-        tocbot.init({
-            tocSelector: '#toc-content',
-            contentSelector: '#articleContent',
-            headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4'
-        });
-
-        // Set scroll toc fixed.
-        let tocHeight = parseInt($(window).height() * 0.4 - 64);
-        let $tocWidget = $('.toc-widget');
-        $(window).scroll(function () {
-            let scroll = $(window).scrollTop();
-            /* add post toc fixed. */
-            if (scroll > tocHeight) {
-                $tocWidget.addClass('toc-fixed');
-            } else {
-                $tocWidget.removeClass('toc-fixed');
-            }
-        });
-
-        
-        /* 修复文章卡片 div 的宽度. */
-        let fixPostCardWidth = function (srcId, targetId) {
-            let srcDiv = $('#' + srcId);
-            if (srcDiv.length === 0) {
-                return;
-            }
-
-            let w = srcDiv.width();
-            if (w >= 450) {
-                w = w + 21;
-            } else if (w >= 350 && w < 450) {
-                w = w + 18;
-            } else if (w >= 300 && w < 350) {
-                w = w + 16;
-            } else {
-                w = w + 14;
-            }
-            $('#' + targetId).width(w);
-        };
-
-        // 切换TOC目录展开收缩的相关操作.
-        const expandedClass = 'expanded';
-        let $tocAside = $('#toc-aside');
-        let $mainContent = $('#main-content');
-        $('#floating-toc-btn .btn-floating').click(function () {
-            if ($tocAside.hasClass(expandedClass)) {
-                $tocAside.removeClass(expandedClass).hide();
-                $mainContent.removeClass('l9');
-            } else {
-                $tocAside.addClass(expandedClass).show();
-                $mainContent.addClass('l9');
-            }
-            fixPostCardWidth('artDetail', 'prenext-posts');
-        });
-        
-    });
-</script>
-
-    
-
+    </article>
 </main>
 
 

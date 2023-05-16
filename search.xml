@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>哨兵决策说明</title>
+      <link href="/2023/05/16/shao-bing-jue-ce-shuo-ming/"/>
+      <url>/2023/05/16/shao-bing-jue-ce-shuo-ming/</url>
+      
+        <content type="html"><![CDATA[<h1 id="哨兵决策说明"><a href="#哨兵决策说明" class="headerlink" title="哨兵决策说明"></a>哨兵决策说明</h1><h2 id="1-击打优先级"><a href="#1-击打优先级" class="headerlink" title="1.击打优先级"></a>1.击打优先级</h2><p>对于全自动机器人来说，同时识别到多个敌方机器人之后判断优先击打哪个极为重要。</p><p>上赛季思路：</p><ul><li>不击打工程机器人</li><li>按一定的规则分配权重计算优先级</li><li>不击打远距离（敌方高地之后）敌人</li></ul><p>权重计算优先级：根据不同的<code>兵种</code>，敌方车辆与哨兵之间的<code>距离</code>设置不同的权重，最终综合分析进行筛选</p><p>本赛季建议：</p><ol><li>可结合敌方车辆剩余血量进行优先级计算</li><li>结合雷达针对雷达划定的敏感区域来综合判断击打目标</li></ol><h2 id="2-发弹控制逻辑"><a href="#2-发弹控制逻辑" class="headerlink" title="2.发弹控制逻辑"></a>2.发弹控制逻辑</h2><p>将对连续出现多次的敌方车辆划入击打目标范围内，如只出现十几帧，则没必要击打，会浪费子弹并且会导致云台抖动。然后最主要的就是通用的发弹控制逻辑，就陈君他们那种，不知道咱们队里现在有没有。</p><h2 id="3-本赛季个人建议"><a href="#3-本赛季个人建议" class="headerlink" title="3.本赛季个人建议"></a>3.本赛季个人建议</h2><p>若云台还是绕yaw轴转动</p><p>可以考虑哨兵在进攻与防守模式之间使用不同的决策。</p><p>进攻时可让云台360°转动，防守时云台180°转动。</p><p>鉴于今年规则以及哨兵发弹量的改变，可以尝试在前哨站未破的情况下让哨兵充当干扰敌方打符的角色。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> RoboMaster </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> RoboMaster </tag>
+            
+            <tag> 哨兵 </tag>
+            
+            <tag> 全自动机器人 </tag>
+            
+            <tag> 决策说明 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>查找算法-散列查找算法</title>
       <link href="/2023/04/17/cha-zhao-suan-fa-san-lie-cha-zhao-suan-fa/"/>
       <url>/2023/04/17/cha-zhao-suan-fa-san-lie-cha-zhao-suan-fa/</url>

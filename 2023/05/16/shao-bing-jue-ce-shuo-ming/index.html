@@ -540,14 +540,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    375
+                    849
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -584,10 +584,114 @@
 <li>结合雷达针对雷达划定的敏感区域来综合判断击打目标</li>
 </ol>
 <h2 id="2-发弹控制逻辑"><a href="#2-发弹控制逻辑" class="headerlink" title="2.发弹控制逻辑"></a>2.发弹控制逻辑</h2><p>将对连续出现多次的敌方车辆划入击打目标范围内，如只出现十几帧，则没必要击打，会浪费子弹并且会导致云台抖动。然后最主要的就是通用的发弹控制逻辑，就陈君他们那种，不知道咱们队里现在有没有。</p>
-<h2 id="3-本赛季个人建议"><a href="#3-本赛季个人建议" class="headerlink" title="3.本赛季个人建议"></a>3.本赛季个人建议</h2><p>若云台还是绕yaw轴转动</p>
+<h2 id="3-根据不同的距离使用不同的射频"><a href="#3-根据不同的距离使用不同的射频" class="headerlink" title="3.根据不同的距离使用不同的射频"></a>3.根据不同的距离使用不同的射频</h2><h2 id="4-本赛季个人建议"><a href="#4-本赛季个人建议" class="headerlink" title="4.本赛季个人建议"></a>4.本赛季个人建议</h2><p>若云台还是绕yaw轴转动</p>
 <p>可以考虑哨兵在进攻与防守模式之间使用不同的决策。</p>
 <p>进攻时可让云台360°转动，防守时云台180°转动。</p>
 <p>鉴于今年规则以及哨兵发弹量的改变，可以尝试在前哨站未破的情况下让哨兵充当干扰敌方打符的角色。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F;击打策略模块
+
+    &#x2F;&#x2F;获取各装甲板距离
+    vector&lt;Point2f&gt; _pts;
+    vector&lt;Solver&gt; solves;
+
+    int num &#x3D; 0;
+    for (int i &#x3D; 0; i &lt; _armor_boxes.size(); i++)
+    &#123;
+
+        _armor_boxes[i].getPoints(_pts);
+        Solver temp_solver;
+        temp_solver.solve(_pts, _armor_boxes[i].type);
+        solves.push_back(temp_solver);
+        _armor_boxes[i].armor_distance &#x3D; solves[i].distance;
+        &#x2F;&#x2F;cout &lt;&lt; &quot;distancesdsdsd&quot; &lt;&lt; _armor_boxes[i].armor_distance &lt;&lt; endl;
+        if (solves[i].distance &lt; 3)
+            _armor_boxes[i].ShootParam.k3 &#x3D; _armor_boxes[i].ShootParam.k3_1;
+        else if (solves[i].distance &gt;&#x3D; 3 &amp;&amp; solves[i].distance &lt;&#x3D; 5)
+            _armor_boxes[i].ShootParam.k3 &#x3D; _armor_boxes[i].ShootParam.k3_2;
+        else
+            _armor_boxes[i].ShootParam.k3 &#x3D; _armor_boxes[i].ShootParam.k3_3;
+
+        &#x2F;&#x2F;兵种识别
+        if (_armor_boxes[i].id &#x3D;&#x3D; 1)
+            _armor_boxes[i].ShootParam.k2 &#x3D; _armor_boxes[i].ShootParam.k2_1;
+        else if (_armor_boxes[i].id &#x3D;&#x3D; 2)
+            &#x2F;&#x2F;_armor_boxes[i].ShootParam.k2 &#x3D; _armor_boxes[i].ShootParam.k2_2;
+        &#123;
+            state &#x3D; ArmorState::LOST;
+            return false;
+        &#125;
+        else if (_armor_boxes[i].id &#x3D;&#x3D; 3)
+            _armor_boxes[i].ShootParam.k2 &#x3D; _armor_boxes[i].ShootParam.k2_3;
+        else if (_armor_boxes[i].id &#x3D;&#x3D; 4)
+            _armor_boxes[i].ShootParam.k2 &#x3D; _armor_boxes[i].ShootParam.k2_4;
+        else if (_armor_boxes[i].id &#x3D;&#x3D; 5)
+            _armor_boxes[i].ShootParam.k2 &#x3D; _armor_boxes[i].ShootParam.k2_5;
+        else
+            _armor_boxes[i].ShootParam.k2 &#x3D; -100;
+
+        &#x2F;&#x2F;装甲板大小
+        if (_armor_boxes[i].type &#x3D;&#x3D; BIG)
+            _armor_boxes[i].ShootParam.k1 &#x3D; _armor_boxes[i].ShootParam.k1_1;
+        else
+            _armor_boxes[i].ShootParam.k1 &#x3D; _armor_boxes[i].ShootParam.k1_2;
+
+        &#x2F;&#x2F; sum
+        _armor_boxes[i].ShootParam.k &#x3D; _armor_boxes[i].ShootParam.k1 + _armor_boxes[i].ShootParam.k2 + _armor_boxes[i].ShootParam.k3;
+
+        if (_armor_boxes[i].ShootParam.k &gt; _armor_boxes[0].ShootParam.k)
+            num &#x3D; i;
+    &#125;
+
+    if (_armor_boxes[num].id &gt; 5 || _armor_boxes[num].id &lt; 1)
+    &#123;
+        state &#x3D; ArmorState::LOST;
+        return false;
+    &#125;
+    else
+    &#123;
+        target &#x3D; _armor_boxes[num];
+
+        target.timestamp &#x3D; time_;   
+        
+        box &#x3D; armor_boxes[num];
+        cout &lt;&lt; &quot;shoot_id&quot; &lt;&lt; target.id &lt;&lt; endl;
+    &#125;
+
+    if(solves[num].distance &lt;&#x3D; 2.5)
+    &#123;
+        predictor.bullet_speed &#x3D; predictor.bullet_speed_2;
+    &#125;
+    else
+    &#123;
+        predictor.bullet_speed &#x3D; predictor.bullet_speed_1;
+    &#125;
+    &#x2F;&#x2F; end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F;距离射频决策模块
+   if (detector.target.armor_distance &lt;&#x3D; 3)
+   &#123;
+       shoot_time &#x3D; 100;
+       shoot_stage &#x3D; ShootStage::FIRING_IN_BURSTS_1;
+   &#125;
+   else if (detector.target.armor_distance &gt;&#x3D; 5.5)
+   &#123;
+       shoot_time &#x3D; 300;
+       shoot_stage &#x3D; ShootStage::DARTLE;
+   &#125;
+   else if(detector.target.armor_distance &#x3D;&#x3D; 0)
+   &#123;
+       shoot_stage &#x3D; 0;
+   &#125;
+   else
+   &#123;
+       shoot_time &#x3D; 200;
+       shoot_stage &#x3D; ShootStage::FIRING_IN_BURSTS_2;
+   &#125;
+   cout &lt;&lt; &quot;shoot_stage&quot; &lt;&lt; shoot_stage &lt;&lt; endl;
+   send_mutex.unlock();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                 
             </div>
@@ -1039,7 +1143,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">8.9k</span>
+                        class="white-color">9.4k</span>
             
             
             

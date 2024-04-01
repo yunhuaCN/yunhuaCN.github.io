@@ -4,6 +4,41 @@
   
     
     <entry>
+      <title>性能优化</title>
+      <link href="/2024/04/01/xing-neng-you-hua/"/>
+      <url>/2024/04/01/xing-neng-you-hua/</url>
+      
+        <content type="html"><![CDATA[<h1 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h1><h1 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h1><h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h2><p>Map是用于保存具有<strong>映射关系</strong>的数据</p><p><img src="/../Markdown_images/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/1.png" alt="img"></p><p><em><strong><code>Key的值为set，不允许重复，即同一个Map对象的任何两个key通过equals方法比较结果总是返回false（即key值不相同）</code></strong></em></p><h1 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h1><p>特点对比：</p><p>数组：寻址（查询）容易，插入和删除困难</p><p>链表：寻址（查询）困难，插入和删除容易</p><p>哈希表就是基于哈希函数建立的一种查找表</p><h2 id="哈希函数"><a href="#哈希函数" class="headerlink" title="哈希函数"></a>哈希函数</h2><h3 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h3><p>哈希函数是一个公开函数，用于将任意长的消息M映射为较短的、固定长度的一个值H（M），又称为散列函数、杂凑函数，称函数值H（M）为哈希值、杂凑值、杂凑码或消息摘要</p><h3 id="C-实现hash函数"><a href="#C-实现hash函数" class="headerlink" title="C++实现hash函数"></a>C++实现hash函数</h3><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h1 id="参考文档："><a href="#参考文档：" class="headerlink" title="参考文档："></a>参考文档：</h1><blockquote><p>1.[unordered_map、unordered_set底层哈希表的实现机理_c++ unordered_map 底层实现-CSDN博客](<a href="https://blog.csdn.net/qq_35987777/article/details/106668695?a=%7B%22request_id%22:%22171197800516800222813372%22,%22scm%22:%2220140713.130102334..%22%7D&request_id=171197800516800222813372&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-3-106668695-null-null.142%5Ev100%5Econtrol&utm_term=c++">https://blog.csdn.net/qq_35987777/article/details/106668695?a=%7B%22request%5Fid%22%3A%22171197800516800222813372%22%2C%22scm%22%3A%2220140713.130102334..%22%7D&amp;request_id=171197800516800222813372&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-3-106668695-null-null.142^v100^control&amp;utm_term=c%2B%2B</a> map&amp;spm&#x3D;1018.2226.3001.4187)</p><p>2.<a href="https://blog.csdn.net/qq_54223524/article/details/131182117?ops_request_misc=%7B%22request_id%22:%22171198231816800226512260%22,%22scm%22:%2220140713.130102334..%22%7D&request_id=171198231816800226512260&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-131182117-null-null.142%5Ev100%5Econtrol&utm_term=%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0&spm=1018.2226.3001.4187">blog.csdn.net</a>哈希函数学习笔记</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 性能优化 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+            <tag> 性能优化算法 </tag>
+            
+            <tag> 哈希表 </tag>
+            
+            <tag> hash表 </tag>
+            
+            <tag> hash函数 </tag>
+            
+            <tag> 哈希函数 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>哨兵决策说明</title>
       <link href="/2023/05/16/shao-bing-jue-ce-shuo-ming/"/>
       <url>/2023/05/16/shao-bing-jue-ce-shuo-ming/</url>
